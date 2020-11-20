@@ -1,12 +1,12 @@
 import React from "react";
-import {StyledCardWrapper,StyledText} from './Card.style'
+import {StyledCardWrapper,StyledText, StyledMovieImage} from './Card.style'
 
-const Card = () => {
+export const Card = ({title,imgSrc}) => {
   return (
   <StyledCardWrapper>
-      <StyledText>Card</StyledText>
+      <StyledMovieImage src = {imgSrc} alt = 'keine img'/>
+      <StyledText>{title}</StyledText>
   </StyledCardWrapper>
      )
 };
 
-export default Card;
