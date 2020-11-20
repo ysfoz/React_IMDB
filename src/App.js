@@ -10,20 +10,22 @@ const baseUrl = 'https://api.themoviedb.org/3/search/movie'
 const baseImgUrl = 'https://image.tmdb.org/t/p/w500'
 
 function App() {
+  const [searchKeyword,setSearchKeyword] = useState('')
   const[movieData,setMovieData] = useState([]) 
   const fetchMovieData = () => axios.get(baseUrl,
       {params:{
           api_key:apiKey,
           page:1,
-          query:'Star Wars'
+          query: searchKeyword
       }}).then (({data}) => setMovieData(data?.results))
          .catch ((err) => console.log('err'))
       
-      useEffect(() => fetchMovieData(),[])
+      useEffect(() => fetchMovieData(),[searchKeyword]) // bos bir liste gonderdigimizde didmount oldugunda 
+      //yani sadece render edildiginde calisiyor. ama liste icersine bir degisken gonderdigimizde o degisken her degistiginde calisr
 
   return (
     <div className="App">
-      <SearchBox />
+      <SearchBox setSearchKeyword = {setSearchKeyword}/>
       <CardList movieData = {movieData} baseImgUrl = {baseImgUrl}/>
     </div>
   );

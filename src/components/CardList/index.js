@@ -14,7 +14,7 @@ export const CardList = ({movieData,baseImgUrl}) => {
                 return <Card 
                 key = {i} 
                 title = {movie.title}
-                imgSrc = {baseImgUrl + movie.poster_path}
+                imgSrc = {movie.poster_path && baseImgUrl + movie.poster_path }
                 />
             })}
                 
