@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
+import axios from 'axios'
+import Card from './components/Card'
+import {apiKey} from './ApiKey'
+
+const baseUrl = 'https://api.themoviedb.org/3/search/company?'
+
+
+
 
 function App() {
+
+const [movieList, setMovieList] = useState([])
+
+  const movieData = async() => await axios.get(baseUrl,{
+    params:{
+      api_key : apiKey,
+      page : 1,
+      query : 'Lord of Rings'
+    } 
+  } )
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>imdb</p>
+      <Card/>
     </div>
   );
 }
