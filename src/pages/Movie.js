@@ -10,7 +10,7 @@ const baseUrl = 'https://api.themoviedb.org/3/search/movie'
 const baseImgUrl = 'https://image.tmdb.org/t/p/w500'
 
 function Movie() {
-  const [searchKeyword,setSearchKeyword] = useState('lord')
+  const [searchKeyword,setSearchKeyword] = useState()
   const[movieData,setMovieData] = useState([]) 
   const fetchMovieData = () => axios.get(baseUrl,
       {params:{
