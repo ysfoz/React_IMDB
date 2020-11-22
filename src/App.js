@@ -3,11 +3,13 @@ import Movie from './pages/Movie'
 import MovieDetails from './pages/MovieDetails'
 
 import {BrowserRouter, Route,Switch} from 'react-router-dom'
-
+import Navbar from './components/Navbar'
 
 const App = () => {
     return (
         <BrowserRouter>
+        {/* switch disinda koydugun tum komponentlar her sayfada gorunur */}
+        <Navbar/> 
             <Switch>
                 {/* url olarak ne yazdiysak onu acmak icin pathler icerisine urldeki karsiligi yazilir. ama movie icerisinde 
                 ki kisim her harikarda krsilandigi icin exact vermemiz gerkir. yani sadece tam o adresse gir demek.
